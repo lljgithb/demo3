@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>爱创课堂团购网站</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+<div id="app">
+	<header class="header">
+		<div class="go-back">&lt;</div>
+		<div class="login">登录</div>
+		<h1>爱创课堂团购网站</h1>
+	</header>
+	<!-- 不是detail页面才显示 -->
+	<div class="search" v-show="view != 'detail'"><input type="text" placeholder="请输入搜索关键字" v-model="search" @keyup.enter="goToSearch"></div>
+	<!-- 第一步 定义组件容器元素 -->
+	<!-- <Home></Home>
+	<List></List>
+	<Detail></Detail> -->
+	<!-- 万能的组件容器元素 -->
+	<!-- <component v-bind:is="view"></component> -->
+	<component :search="searchValue" :query="query" :is="view"></component>
+</div>
+<template id="tpl_home">
+	<section class="home" id="home">
+		<!-- 分类按钮 -->
+		<ul class="types clearfix">
+			<li v-for="(item, index) in types">
+				<a :href="'#/list/type/' + item.id">
+					<img :src="'img/icon/' + item.url" alt="">
+					<span>{{item.title}}</span>
+				</a>
+			</li>
+		</ul>
+		<ul class="ad clearfix">
+			<li v-for="(item, index) in ad">
+				<a :href="'#/detail/' + item.id">
+					<h3 :class="'color' + index">{{item.title}}</h3>
+					<p>{{item.description}}</p>
+					<img :src="'img/ad/' + item.url" alt="">
+				</a>
+			</li>
+		</ul>
+		<ul class="list-container">
+			<li class="item" v-for="item in list">
+				<a :href="'#/detail/' + item.id">
+					<img :src="'img/list/' + item.img" alt="">
+					<div class="text-container">
+						<h1>{{item.title}}</h1>
+						<p>
+							<span class="price">{{item.price | priceFilter}}</span>
+							<span class="origin-price">{{item.originPrice | originPriceFilter}}</span>
+							<span class="sales">{{item.sales | salesFilter}}</span>
+						</p>
+					</div>
+				</a>
+			</li>
+		</ul>
+	</section>
+</template>
+<!-- 定义列表页模板 -->
+<template id="tpl_list">
+	<section class="list" id="list">
+		<!-- 排序部分 -->
+		<ul class="orders clearfix">
+			<li v-for="item in orders" :data-id="item.id" @click="listOrder(item.id)">
+				<span>{{item.text}}</span>
+				<span class="arrow"></span>
+			</li>
+		</ul>
+		<!-- 商品列表 -->
+		<ul class="list-container">
+			<li class="item" v-for="item in dealList">
+				<a :href="'#/detail/' + item.id">
+					<img :src="'img/list/' + item.img" alt="">
+					<div class="text-container">
+						<h1>{{item.title}}</h1>
+						<p>
+							<span class="price">{{item.price | priceFilter}}</span>
+							<span class="origin-price">{{item.originPrice | originPriceFilter}}</span>
+							<span class="sales">{{item.sales | salesFilter}}</span>
+						</p>
+					</div>
+				</a>
+			</li>
+		</ul>
+		<!-- 加载更多 显隐与ohter的长度有关 -->
+		<div class="load-more" v-on:click="showOther" v-show="other.length">
+			<span>查看剩余{{other.length}}条团购</span>
+			<span class="arrow">
+				<span class="arrow white"></span>
+			</span>
+		</div>
+	</section>
+</template>
+<!-- 详情页 -->
+<template id="tpl_detail">
+	<section class="detail" id="detail">
+		<div class="banner-part">
+			<!-- 为了避免发送错误的请求，当图片地址存在的时候，创建图片元素 -->
+			<img v-if="data.src" :src="'img/item/' + data.src" alt="">
+			<h1>{{data.title}}</h1>
+			<p>{{data.description}}</p>
+		</div>
+		<div class="price-part">
+			<span class="price"><span>{{data.price}}</span>元</span>
+			<span>{{data.originPrice | originPriceFilter}}</span>
+			<span class="btn">立即购买</span>
+		</div>
+		<ul class="sales-part clearfix">
+			<li>支持自动退款</li>
+			<li>支持随时退货</li>
+			<li>{{data.sales | salesFilter}}</li>
+		</ul>
+		<div class="store-part common-part">
+			<div class="part-header">店家信息</div>
+			<div class="part-body">
+				<p>{{data.storeName}}</p>
+				<p>{{data.storeAddress}}</p>
+			</div>
+			<div class="part-footer">查看{{data.storeNum}}家分店</div>
+		</div>
+		<div class="buy-part common-part">
+			<div class="part-header">购买须知</div>
+			<div class="part-body">
+				<ul>
+					<li>
+						<h3>有效期</h3>
+						<p>{{data.validateTime}}</p>
+					</li>
+					<li>
+						<h3>使用时间</h3>
+						<p>{{data.useTime}}</p>
+					</li>
+					<li>
+						<h3>使用规则</h3>
+						<ul>
+							<li v-for="item in data.rules">{{item}}</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+</template>
+<!-- <script type="text/template"></script> -->
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+// 定义动画
+.loader {
+	// 用em定义宽高
+	width: 11em;
+	height: 11em;
+	// background: yellow;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -5.5em;
+	// 倾斜容器元素
+	transform: rotate(45deg);
+	&:before,
+	&:after {
+		content: '';
+		display: block;
+		width: 1em;
+		height: 1em;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		border-radius: 0.5em;
+	}
+	// after代表水平的
+	&:after {
+		animation: moveafter 2s infinite;
+		// background: green;
+		// 第一个状态
+		// width: 11em;
+		// box-shadow: 0 -3em yellowgreen, 0 3em purple; 
+		// 第二个状态
+		// box-shadow: 5em -3em yellowgreen, -5em 3em purple;
+		// 第三个状态
+		// box-shadow: -5em -3em yellowgreen, 5em 3em purple;
+	}
+	// before代表垂直的
+	&:before {
+		animation: movebefore 2s infinite
+		// background: pink;
+		// 第一个状态
+		// height: 11em;
+		// box-shadow: 3em 0 gold, -3em 0 skyblue;
+		// 第二个状态
+		// box-shadow: 3em 5em gold, -3em -5em skyblue;
+		// 第三个状态
+		// box-shadow: 3em -5em gold, -3em 5em skyblue;
+	}
+}
+.loader-text {
+	width: 20em;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -10em;
+	margin-top: -5em;
+	text-align: center;
+	font-size: 30px;
+}
+// 定义动画关键帧
+@keyframes moveafter {
+	0% {
+		box-shadow: 5em -3em #c9f0fc, -5em 3em #f4a7c4;
+	}
+	35% {
+		width: 11em;
+		box-shadow: 0 -3em #c9f0fc, 0 3em #f4a7c4; 
+	}
+	70% {
+		width: 1em;
+		box-shadow: -5em -3em #c9f0fc, 5em 3em #f4a7c4;
+	}
+	100% {
+		box-shadow: 5em -3em #c9f0fc, -5em 3em #f4a7c4;
+	}
+}
+@keyframes movebefore {
+	0% {
+		box-shadow: 3em 5em #f7dfac, -3em -5em #b3e5d5;
+	}
+	35% {
+		height: 11em;
+		box-shadow: 3em 0 #f7dfac, -3em 0 #b3e5d5;
+	}
+	70% {
+		height: 1em;
+		box-shadow: 3em -5em #f7dfac, -3em 5em #b3e5d5;
+	}
+	100% {
+		box-shadow: 3em 5em #f7dfac, -3em -5em #b3e5d5;
+	}
+}

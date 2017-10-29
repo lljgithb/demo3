@@ -1,0 +1,278 @@
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+a {
+	text-decoration: none;
+	color: #666;
+}
+body {
+	background: #efefef;
+}
+.clearfix:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+.header {
+	background: #06c1ae;
+	height: 60px;
+	line-height: 60px;
+	color: #fff;
+}
+.header .go-back {
+	float: left;
+	font-size: 30px;
+	margin-left: 10px;
+}
+.header .login {
+	float: right;
+	margin-right: 10px;
+}
+.header h1 {
+	text-align: center;
+	font-size: 28px;
+}
+.search {
+	padding: 5px 20px;
+	background: #fff;
+}
+.search input {
+	display: block;
+	width: 100%;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	border-radius: 17px;
+	background: #efefef;
+	border: none;
+	outline: none;
+}
+
+/*分类按钮*/
+.home .types {
+	background: #fff;
+	padding: 10px 0;
+}
+.home .types li {
+	width: 20%;
+	float: left;
+	text-align: center;
+	margin-bottom: 10px;
+} 
+.home .types li a {
+	text-decoration: none;
+	color: #666;
+	font-size: 12px;
+}
+.home .types li img {
+	width: 60%;
+	margin-bottom: 5px;
+}
+.home .types li span {
+	display: block;
+}
+/*ad部分*/
+.home .ad {
+	background: #fff;
+	margin-top: 10px;
+}
+.home .ad li {
+	width: 33.33333333%;
+	border-right: 1px solid #ccc;
+	box-sizing: border-box;
+	text-align: center;
+	float: left;
+	padding: 15px 0;
+}
+.home .ad li:last-child {
+	border-right: none;
+}
+.home .ad li a {
+	color: #666;
+	text-decoration: none;
+}
+.home .ad li img {
+	width: 60%;
+}
+.home .ad li h3 {
+	font-size: 16px;
+}
+.home .ad li p {
+	font-size: 14px;
+	color: #666;
+	margin: 8px 0 10px;
+}
+.home .ad li .color0 {
+	color: red;
+}
+.home .ad li .color1 {
+	color: green;
+}
+.home .ad li .color2 {
+	color: purple;
+}
+
+/*商品样式*/
+.list-container {
+	margin-top: 10px;
+	padding: 0 10px;
+	background: #fff;
+} 
+.list-container .item {
+	padding: 10px 0;
+	border-bottom: 1px solid #ccc;
+}
+.list-container .item img {
+	width: 100px;
+	height: 60.5px;
+	float: left;
+}
+.list-container .item .text-container {
+	margin-left: 110px;
+	height: 60.5px;
+}
+.list-container .item h1 {
+	height: 46px;
+	font-size: 14px;
+}
+.list-container .item p {
+	font-size: 12px;
+}
+.list-container .item .price {
+	color: #06c1ae;
+}
+.list-container .item .sales {
+	float: right;
+}
+
+/*列表页*/
+.list .orders {
+	background: #fff;
+}
+.list .orders li {
+	float: left;
+	width: 25%;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	text-align: center;
+	font-size: 12px;
+	height: 30px;
+	line-height: 30px;
+	box-sizing: border-box;
+}
+.list .orders li:last-child {
+	border-right: none;
+}
+.list .orders li .arrow {
+	font-size: 0;
+	border: 4px solid transparent;
+	border-top-color: #000;
+	position: relative;
+	top: -2px;
+	left: 2px;
+}
+.list .list-container {
+	margin-top: 0;
+}
+.list .load-more {
+	height: 40px;
+	line-height: 40px;
+	color: #06c1ae;
+	font-size: 16px;
+	text-align: center;
+	background: #fff;
+	border-bottom: 1px solid #ccc;
+}
+.list .load-more .arrow {
+	position: relative;
+	left: 4px;
+	top: -2px;
+	font-size: 0;
+	border: 6px solid transparent;
+	border-top-color: #06c1ae;
+}
+.list .load-more .white {
+	position: absolute;
+	top: -8px;
+    left: -6px;
+	border-top-color: #fff;
+}
+
+/*详情页*/
+.detail .banner-part {
+	position: relative;
+	color: #fff;
+} 
+.detail .banner-part h1,
+.detail .banner-part p {
+	position: absolute;
+	left: 20px;
+	bottom: 20px;
+}
+.detail .banner-part h1 {
+	bottom: 40px;
+}
+.detail .price-part {
+	height: 60px;
+	line-height: 60px;
+	background: #fff;
+	border-bottom: 1px solid #ccc;
+	font-size: 14px;
+}
+.detail .price-part .price {
+	color: #06c1ae;
+	margin-left: 10px;
+}
+.detail .price-part .price span {
+	font-size: 40px;
+}
+.detail .price-part .btn {
+	float: right;
+	padding: 8px 15px;
+	background: orange;
+	color: #fff;
+	line-height: 14px;
+	margin-top: 15px;
+	margin-right: 10px;
+}
+.detail .sales-part {
+	background: #fff;
+	padding: 10px;
+}
+.detail .sales-part li {
+	float: left;
+	width: 50%;
+	font-size: 14px;
+	color: yellowgreen;
+	line-height: 30px;
+	height: 30px;
+}
+.detail .sales-part li:last-child {
+	color: #000;
+}
+.detail .common-part {
+	margin-top: 10px;
+	padding: 10px;
+	background: #fff;
+}
+.detail .common-part .part-header {
+	font-size: 30px;
+	line-height: 50px;
+	border-bottom: 1px solid #ccc;
+}
+.detail .common-part .part-body {
+	line-height: 24px;
+	padding: 8px 0;
+	font-size: 14px;
+}
+.detail .common-part .part-body h3 {
+	color: orange;
+	line-height: 40px;
+}
+.detail .common-part .part-footer {
+	font-size: 16px;
+	line-height: 30px;
+	color: skyblue;
+	border-top: 1px solid #ccc;
+}

@@ -1,0 +1,50 @@
+// 定义模块的样式
+.section {
+	padding: 30px 0 50px;
+	ul, li {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+	ul {
+		margin-right: -20px;
+	}
+	li {
+		float: left;
+		margin-right: 20px;
+		margin-bottom: 20px;
+		position: relative;
+		width: 270px;
+		height: 180px;
+		overflow: hidden;
+		a {
+			color: #fff;
+			display: block;
+			height: 180px;
+			text-decoration: none;
+		}
+	}
+	.content {
+		display: table-cell;
+		vertical-align: middle;
+		width: 270px;
+		height: 180px;
+		text-align: center;
+		padding: 0 20px;
+	}
+	.layer {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba(0, 0, 0, .8);
+		padding: 30px 20px;
+		display: none;
+	}
+	a:hover {
+		.layer {
+			display: block;
+		}
+	}
+}
